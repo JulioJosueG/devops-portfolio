@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Professional Light Theme (Default) */
+  --background: #f8fafc; /* Slate 50 */
+  --foreground: #0f172a; /* Slate 900 */
+  
+  --primary: #2563eb; /* Blue 600 */
+  --primary-foreground: #ffffff;
+  
+  --card: #ffffff;
+  --card-foreground: #334155; /* Slate 700 */
+  
+  --muted: #f1f5f9; /* Slate 100 */
+  --muted-foreground: #64748b; /* Slate 500 */
+  
+  --accent: #e0f2fe; /* Sky 100 */
+  --accent-foreground: #0284c7; /* Sky 600 */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Professional Dark Theme */
+    --background: #0f172a; /* Slate 900 */
+    --foreground: #f8fafc; /* Slate 50 */
+    
+    --primary: #3b82f6; /* Blue 500 */
+    --primary-foreground: #ffffff;
+    
+    --card: #1e293b; /* Slate 800 */
+    --card-foreground: #e2e8f0; /* Slate 200 */
+    
+    --muted: #334155; /* Slate 700 */
+    --muted-foreground: #94a3b8; /* Slate 400 */
+    
+    --accent: #1e293b; /* Slate 800 */
+    --accent-foreground: #38bdf8; /* Sky 400 */
+  }
+}
+
+body {
+  @apply bg-background text-foreground antialiased font-sans;
+}
+
+/* Custom Utilities for "Bento" feel */
+@layer utilities {
+  .glass-panel {
+    @apply bg-card/80 backdrop-blur-md border border-muted/50 shadow-sm;
+  }
+}
