@@ -1,5 +1,5 @@
 trigger:
-  - main
+  - master
 
 variables:
   # Azure Service Connection Name (Create this in Azure DevOps Project Settings)
@@ -7,7 +7,7 @@ variables:
   
   # Web App Name (Will be filled after Terraform runs or manually set)
   # Ideally, this comes from a variable group or Terraform output
-  webAppName: 'julio-portfolio-REPLACE_WITH_ACTUAL_NAME'
+  webAppName: 'julio-portfolio'
   
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
