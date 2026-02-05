@@ -43,9 +43,9 @@ resource "azurerm_linux_web_app" "app" {
       node_version = "20-lts"
     }
     always_on = true
-    
-    # Optional: Command to start the app if standard detection fails
-    # app_command_line = "pm2 serve /home/site/wwwroot/dist --no-daemon --spa" 
+
+    # Command to start the app (PM2 serving the dist folder)
+    app_command_line = "pm2 serve /home/site/wwwroot/dist --no-daemon --spa"
   }
 
   app_settings = {
