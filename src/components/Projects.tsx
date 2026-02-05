@@ -123,29 +123,28 @@ const Projects: React.FC = () => {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
                 {/* Project List / Navigation */}
                 <div className="lg:col-span-4 space-y-4">
-                    {projects.map((project) => (
-                        <button
-                            key={project.id}
-                            onClick={() => setActiveProject(project.id)}
-                            className={`w-full text-left p-6 rounded-xl border transition-all duration-300 group ${activeProject === project.id
-                                ? 'border-primary bg-primary/5 shadow-md'
-                                : 'border-muted hover:border-primary/50'
-                                }`}
-                        >
-                            <h3 className={`text-lg font-semibold mb-1 group-hover:text-primary transition-colors ${activeProject === project.id ? 'text-primary' : 'text-foreground'
-                                }`}>
-                                {project.title}
-                            </h3>
-                            <p className="text-sm text-muted-foreground mb-4">{project.subtitle}</p>
+                    {projects.map((project) => (<button
+                        key={project.id}
+                        onClick={() => setActiveProject(project.id)}
+                        className={`w-full text-left p-4 md:p-6 rounded-xl border transition-all duration-300 group ${activeProject === project.id
+                            ? 'border-primary bg-primary/5 shadow-md'
+                            : 'border-muted hover:border-primary/50'
+                            }`}
+                    >
+                        <h3 className={`text-lg font-semibold mb-1 group-hover:text-primary transition-colors ${activeProject === project.id ? 'text-primary' : 'text-foreground'
+                            }`}>
+                            {project.title}
+                        </h3>
+                        <p className="text-sm text-muted-foreground mb-4">{project.subtitle}</p>
 
-                            <div className="flex flex-wrap gap-2">
-                                {project.tags.slice(0, 3).map(tag => (
-                                    <span key={tag} className="text-xs px-2 py-1 rounded bg-background border border-muted text-muted-foreground">
-                                        {tag}
-                                    </span>
-                                ))}
-                            </div>
-                        </button>
+                        <div className="flex flex-wrap gap-2">
+                            {project.tags.slice(0, 3).map(tag => (
+                                <span key={tag} className="text-xs px-2 py-1 rounded bg-background border border-muted text-muted-foreground">
+                                    {tag}
+                                </span>
+                            ))}
+                        </div>
+                    </button>
                     ))}
 
                     <div className="p-6 rounded-xl border border-dashed border-muted bg-muted/20 flex flex-col items-center justify-center text-center">
@@ -167,8 +166,8 @@ const Projects: React.FC = () => {
                                     transition={{ duration: 0.3 }}
                                     className="bg-card rounded-2xl border border-muted shadow-sm overflow-hidden"
                                 >
-                                    <div className="p-6 md:p-8 border-b border-muted">
-                                        <div className="flex justify-between items-start mb-6">
+                                    <div className="p-5 md:p-8 border-b border-muted">
+                                        <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-6">
                                             <div>
                                                 <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
                                                 <p className="text-muted-foreground">{project.description}</p>
@@ -178,7 +177,7 @@ const Projects: React.FC = () => {
                                                     href="https://lingomap.tartaro.net/"
                                                     target="_blank"
                                                     rel="noopener noreferrer"
-                                                    className="hidden md:flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-all text-sm font-medium border border-primary/20 hover:border-primary/50"
+                                                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-all text-sm font-medium border border-primary/20 hover:border-primary/50 self-start md:self-auto"
                                                 >
                                                     <span>Visit Live Site</span>
                                                     <ExternalLink className="w-4 h-4" />
@@ -186,7 +185,7 @@ const Projects: React.FC = () => {
                                             )}
                                         </div>
 
-                                        <div className="grid grid-cols-3 gap-4">
+                                        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                                             {project.stats.map((stat, idx) => (
                                                 <div key={idx} className="p-4 bg-muted/30 rounded-lg border border-muted/50">
                                                     <div className="flex items-center gap-2 mb-1 text-muted-foreground text-xs font-medium uppercase tracking-wider">
