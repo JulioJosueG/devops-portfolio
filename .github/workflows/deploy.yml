@@ -6,7 +6,7 @@ on:
       - master
 
 env:
-  AZURE_WEBAPP_NAME: 'julio-portfolio' # Update this after terraform run
+  AZURE_WEBAPP_NAME: 'julio-portfolio-d0b23d1a'
   NODE_VERSION: '20.x'
 
 jobs:
