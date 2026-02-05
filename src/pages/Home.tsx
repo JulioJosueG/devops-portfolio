@@ -4,7 +4,6 @@ import SkillsGrid from '../components/SkillsGrid';
 import Projects from '../components/Projects';
 import Contact from '../components/Contact';
 import About from '../components/About';
-import { ExternalLink } from 'lucide-react';
 
 const Home: React.FC = () => {
     return (
