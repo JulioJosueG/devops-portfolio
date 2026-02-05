@@ -1,73 +1,91 @@
-# React + TypeScript + Vite
+# DevOps Portfolio - Julio Hernandez
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A professional portfolio showcasing generic and advanced DevOps projects, built with **React, TypeScript, and Vite**, and deployed using **Infrastructure as Code (Terraform)** and **GitHub Actions** on **Azure**.
 
-Currently, two official plugins are available:
+![Project Status](https://img.shields.io/badge/status-live-success)
+![Build](https://img.shields.io/github/actions/workflow/status/JulioJosueG/devops-portfolio/deploy.yml)
+![Azure](https://img.shields.io/badge/azure-cloud-blue)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Concept: Infrastructure as Story
 
-## React Compiler
+This portfolio moves beyond traditional code showcases to focus on:
+- **Architecture Visualization**: Interactive diagrams and flows.
+- **Process & Logic**: How problems are solved using automation.
+- **Measurable Impact**: Quantifiable results (Uptime, Deployment speed).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+### Frontend
+- **Framework**: React 18 + TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS v3, `lucide-react` (Icons), `framer-motion` (Animations)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### DevOps & Infrastructure
+- **Cloud Provider**: Microsoft Azure (App Service, Linux B1)
+- **IaC**: Terraform (Infrastructure provisioning)
+- **CI/CD**: GitHub Actions (Automated Build & Deploy)
+- **Pipeline Strategy**: Artifact-based deployment with specific startup commands for SPA.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 🏃‍♂️ Getting Started
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Prerequisites
+- Node.js 20+
+- npm
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Local Development
+1.  **Clone the repository**:
+    ```bash
+    git clone https://github.com/JulioJosueG/devops-portfolio.git
+    cd devops-portfolio
+    ```
+
+2.  **Install dependencies**:
+    ```bash
+    npm install
+    ```
+
+3.  **Run the development server**:
+    ```bash
+    npm run dev
+    ```
+    Open [http://localhost:5173](http://localhost:5173).
+
+## ☁️ Deployment Guide
+
+This project uses a fully automated DevOps pipeline.
+
+### 1. Infrastructure Provisioning (Terraform)
+Navigate to the `/terraform` directory to provision the Azure resources.
+
+```bash
+cd terraform
+terraform init
+terraform apply -var="subscription_id=<YOUR_AZURE_SUBSCRIPTION_ID>"
+```
+*Creates: Resource Group, App Service Plan (Linux), and Web App.*
+
+### 2. CI/CD Pipeline (GitHub Actions)
+The workflow is defined in `.github/workflows/deploy.yml`.
+
+- **Trigger**: Push to `master` branch.
+- **Build Job**: Compiles TypeScript/Vite application.
+- **Deploy Job**: Deploys the artifact to Azure App Service.
+
+**Configuration Required in GitHub Secrets**:
+- `AZURE_WEBAPP_PUBLISH_PROFILE`: XML content from your Azure Web App's "Get publish profile".
+
+## 📂 Project Structure
+
+```
+/
+├── src/
+│   ├── components/     # UI Components (Hero, About, Projects)
+│   ├── pages/          # Page layouts
+│   └── index.css       # Tailwind directives
+├── terraform/          # Infrastructure as Code definitions
+├── .github/workflows/  # CI/CD Pipeline definitions
+└── package.json
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📄 License
+MIT
