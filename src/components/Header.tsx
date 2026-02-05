@@ -38,7 +38,7 @@ const Header: React.FC = () => {
                             <a href="https://www.linkedin.com/in/julio-hernandez-8319a3114/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-foreground">
                                 <Linkedin className="h-5 w-5" />
                             </a>
-                            <a href="mailto:bencerebrito17@gmail.com" className="text-muted-foreground hover:text-foreground">
+                            <a href="mailto:juliohernandez@tartaro.net" className="text-muted-foreground hover:text-foreground">
                                 <Mail className="h-5 w-5" />
                             </a>
                         </div>
